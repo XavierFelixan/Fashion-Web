@@ -1,0 +1,45 @@
+{% from "bootstrap5/form.html" import render_form %}
+
+{% include 'header.html' %}
+
+<header class="masthead px-5">
+    <div class="container position-relative">
+      <div class="row gx-4 gx-lg-5 justify-content-center text-center">
+        <div class="col">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe width="1120" height="630" src={{ vid.vid_url }} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div class="container">
+  <article>
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          {{ ckeditor.load() }}
+          {{ ckeditor.config(name='comment') }}
+          {{ render_form(form, novalidate=True) }}
+          <div class="comment">
+            <ul class="commentList">
+              {% for comment in vid.comments %}
+              <li>
+                <div class="commenterImage">
+                  <img src="{{ comment.text|gravatar }}" />
+                </div>
+                <div class="commentText">
+                  <p>{{ comment.text|safe }}</p>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+{% include 'footer.html' %}

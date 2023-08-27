@@ -1,0 +1,44 @@
+{% include 'header.html' %}
+
+<header
+  class="masthead"
+  style="background-image: url('https://assets.vogue.com/photos/64e656f82a8628c7548a9f10/master/w_1600,c_limit/2023SantaFeIndianMarket-LaurenGoodday-Vogue-SBlatchford.jpg'); height: 600px;"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>News</h1>
+          <span class="subheading">Read the latest articles and news about the fashion world presented by GETA. Find what your favorite celebrities wear, search for facts and opinions on fashion, and learn the newest trends.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      {% for art in articles %}
+      <div class="post-preview">
+        <a href="{{ url_for('get_news', news_id=art.id) }}">
+          <h2 class="post-title">{{ art.title }}</h2>
+          <h3 class="post-subtitle">{{ art.subtitle }}</h3>
+        </a>
+        <p class="post-meta">
+          Posted by
+          <a href="#">{{ art.author }}</a>
+          on {{ art.date }}
+        </p>
+      </div>
+      <!-- Divider-->
+      <hr class="my-4" />
+      {% endfor %}
+      <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-secondary text-uppercase" href="#!">Older Posts →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.html' %}

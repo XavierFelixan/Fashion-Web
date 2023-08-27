@@ -1,0 +1,63 @@
+{% include 'header.html' %}
+
+
+<header
+  class="masthead"
+  style="background-image: url('../static/assets/img/home-bg.jpg')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <img src="../static/assets/img/Web_Logo.png" style="width: 50%">
+          <span class="subheading">Read. Learn. Buy.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container col-xxl-8 px-4">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="{{ art.img_url }}" class="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ art.title }}</h1>
+      <h5 class="lead my-4">{{ art.subtitle }}</h5>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start my-3">
+        <a href="{{ url_for('get_news', news_id=art.id) }}" type="button" class="btn btn-primary btn-lg px-4 me-md-2" fdprocessedid="u563h">Read</a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6" style="text-align: end;">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ vid.title }}</h1>
+      <h5 class="lead my-4">{{ vid.author }}</h5>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
+        <a href="{{ url_for('get_video', vid_id=vid.id) }}" type="button" class="btn btn-danger btn-lg px-4 me-md-2" fdprocessedid="u563h">Watch</a>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <img src="{{ vid.thumbnail }}" class="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy">
+    </div>
+  </div>
+  <hr>
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="https://assets.vogue.com/photos/64d52f24ea4637be1064a285/3:4/w_640,c_limit/slide_33.jpg" class="d-block mx-lg-auto img-fluid" height="500" width="700" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Organic cotton-blend poplin shirt</h1>
+      <h5 class="lead my-4">Shop All of our Newest Item!</h5>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start my-3">
+        <a href="{{ url_for('get_all_items') }}" type="button" class="btn btn-success btn-lg px-4 me-md-2" fdprocessedid="u563h">Shop</a>
+      </div>
+    </div>
+  </div>
+  <br class="mt-1">
+</div>
+
+
+{% include 'footer.html' %}
