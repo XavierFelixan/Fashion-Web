@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from datetime import datetime
 
 from flask_ckeditor import CKEditor
@@ -13,7 +13,7 @@ from wtforms import SubmitField
 from wtforms.validators import DataRequired
 from flask_ckeditor import CKEditorField
 
-load_dotenv()
+# load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("FLASK_KEY")
